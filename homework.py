@@ -1,3 +1,4 @@
+from typing import Type
 from dataclasses import dataclass
 
 
@@ -135,7 +136,7 @@ class Swimming(Training):
 
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
-    training_types: dict[str: Training] = {'SWM': Swimming,
+    training_types: dict[str, Type[Training]] = {'SWM': Swimming,
                                            'RUN': Running,
                                            'WLK': SportsWalking}
     if workout_type not in training_types:
